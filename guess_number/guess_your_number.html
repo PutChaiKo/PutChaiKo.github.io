@@ -2,28 +2,27 @@
 <html lang="zh">
 <head>
 <script type="text/javascript">
-var target;
-var guess_input_text;
-var guess_input;
+var guess_num = target;
+var guess_up;
+var guess_down;
 var finished = false;
 var guess = 0;
+var target; //随机整数 1<= target <=100
 
 function do_game() {
+
     var random_number = Math.random() * 100;
     var random_number_integer = Math.floor(random_number);
     target = random_number_integer + 1;
     console.log("target is " + target)
 
-    while (!finished) {
-        guess_input_text = prompt("我想你猜\n\n"+
-                                  "我在想一个1-100内的整数\n\n"+
-                                  "猜猜是啥");
-        guess_input = parseInt(guess_input_text);//整型为整数
-        console.log("guess_input is " + guess_input);
-        console.log("guess_input_text is " +  guess_input_text);
-        guess += 1;
-        finished = check_guess();
+    alert("请想一个1-100的整数")
+    while（!finished){
+         var return_word = confirm("你的数字是" + guess_num + "吗？");
+         guess += 1;
+         finished = check_guess();
     }
+
 }
 function check_guess() {
 /*    if (guess_input_text = "null"){
@@ -36,8 +35,9 @@ function check_guess() {
         return false;
     }
     if ((guess_input < 1) || (guess_input_text > 100)) {
-        alert("超出范围");
-        return false;
+        var return_word = confirm("超出范围");
+        console.log("return_word is " + return_word)
+        return !return_word;
     }
     if(guess_input > target){
       alert("你的太大...");
