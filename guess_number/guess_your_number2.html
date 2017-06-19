@@ -1,0 +1,89 @@
+<html>
+<head>
+<script type="text/javascript">
+
+var finished = false;
+var times = 1;
+var random_num = (Math.floor(Math.random() * 100)+1);
+    console.log("random_num is " + random_num);
+var guess_num = random_num;
+    console.log("guess_num is " + guess_num);
+var num_range = new Array(2)
+num_range[0] = 1
+num_range[1] = 100
+
+function show_confirm()
+{
+alert("请想一个1-100的整数")
+while (!finished){
+var r=confirm("你想的数是" + guess_num + "吗？"  + 
+				"猜对按“是”，猜错按“否”。"
+				);
+if (r==true)
+  {
+  alert("猜对了！我猜了"+ times +"次。");
+  finished = true;
+  }
+else
+  {
+  finished = new_guess_num();
+  }
+  times += 1;
+}
+}
+
+function new_guess_num(){
+ c=confirm("你想的数比" + guess_num + "大吗？");
+ if (c==true){
+ num_range[0] = guess_num;
+	console.log("num_range is " + "[" + num_range + "]");
+ up_num();
+
+  }
+	
+	
+
+  else
+  {
+	num_range[1] = guess_num;
+	console.log("num_range is " + "[" + num_range + "]");
+	down_num();
+
+  }
+  
+ }
+
+  function up_num() {
+	var cycle = false;
+	while(!cycle){
+	var random_num2 = (Math.floor(Math.random() * 100)+1);
+	guess_num = random_num2;
+	    cycle = ((random_num2 >= num_range[0]) && 
+				(random_num2 <= num_range[1]));
+		console.log("cycle is " + cycle);
+	}
+	     console.log("random_num2 is " + random_num2);
+}
+  function down_num() {
+	var cycle = false;
+	while(!cycle){
+	var random_num3 = (Math.floor(Math.random() * 100)+1);
+
+	guess_num = random_num3;
+	    cycle = ((random_num3 >= num_range[0]) && 
+				(random_num3 <= num_range[1]));
+		console.log("cycle is " + cycle);
+	}
+		console.log("random_num3 is " + random_num3);
+}
+
+</script>
+</head>
+<body>
+
+<input type="button" onclick="show_confirm()" value="Show a confirm box" />
+<br />
+<input type="button" onclick="up_num()" value="up_num" />
+
+</body>
+</html>
