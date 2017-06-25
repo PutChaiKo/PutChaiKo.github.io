@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Match Face Game</title>
+
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" href="css/jquery.hiSlider.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script>
+function addimg(){
+    var faceimg = Document.createElement(img).src="face.png";
+    var divleft = Document.docmentElementById("face_left");
+    divleft.Node.appendChild(faceimg);
+}
+function insert_new_text()
+{
+    var newText = document.createTextNode(
+        "This is dynamically added text!");
+    var textpart = document.getElementById("my_text");
+    textpart.appendChild(newText);
+}
+
+
+</script>
+<style>
+.half_div{
+    -webkit-flex: 1;
+    flex: 1;
+    border-style: solid;
+    border-color: black;
+    height: 80vh;
+}
+</style>
+</head>
+<body onclick="insert_new_text()">
+    <h1 id="my_text">Please click on the page</h1>
+    <p>下面左图比右图多一个笑脸，找出并点击它</p>
+    <div style="display: -webkit-flex;display: flex;">
+        <div id="face_left" class="half_div">
+        </div>
+        <div id="face_right" class="half_div"></div>
+    </div>
+</body>
+</html>
