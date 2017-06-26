@@ -2,29 +2,64 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Match Face Game</title>
-
+<!--
 <link rel="stylesheet" type="text/css" href="css/default.css">
 <link rel="stylesheet" href="css/jquery.hiSlider.min.css">
 <link rel="stylesheet" href="css/style.css">
-<script>
-function addimg(){
-    var faceimg = Document.createElement(img).src="face.png";
-    var divleft = Document.docmentElementById("face_left");
-    divleft.Node.appendChild(faceimg);
-}
-function insert_new_text()
-{
-    var newText = document.createTextNode(
-        "This is dynamically added text!");
-    var textpart = document.getElementById("my_text");
-    textpart.appendChild(newText);
-}
+-->
+        <script>
+            function add_new_face(){
+                var random_top = Math.random()*90;
+                    console.log("random_top is "+ random_top);
+                var random_left = Math.random()*90;
+                    console.log("random_left  is "+ random_left );
+                var addimg = document.createElement("img");
+                addimg.src = "face.png"
+                addimg.style = "top: " + random_top + "%;" +
+                    "left: " + random_left + "%;"
+                var divpart = document.getElementById("face_right");
+                divpart.appendChild(addimg);
+                var addimg = document.createElement("img");
+                addimg.src="face.png"
+                addimg.style = "top: " + random_top + "%;" +
+                    "left: " + random_left + "%;"
+                var divpart = document.getElementById("face_left");
+                divpart.appendChild(addimg);
+            }
 
+            function add_target_face(){
+                var random_top = Math.random()*90;
+                    console.log("target_random_top is "+ random_top);
+                var random_left = Math.random()*90;
+                    console.log("target_random_left  is "+ random_left );
+                var addimg = document.createElement("img");
+                addimg.src = "face2.png";
+                addimg.style = "top: " + random_top + "%;" +
+                    "left: " + random_left + "%;";
+                var divpart = document.getElementById("face_left");
+                divpart.appendChild(addimg);
+                addimg.addEventListener( 'click',alert_error());
+            }
 
-</script>
+            function alert_error(){
+                alert("error");
+            }
+            function add_new_face_5(){
+                var face_number = 5;
+                var i = 0;
+                while (i < face_number) {
+                    add_new_face();
+                    i++;
+                }
+            }
+            function run_game(){
+                add_new_face_5();
+                add_target_face()
+            }
+        </script>
 <style>
 .half_div{
     -webkit-flex: 1;
@@ -33,15 +68,23 @@ function insert_new_text()
     border-color: black;
     height: 80vh;
 }
+img{
+    height: 10vh;
+    width: 10vh;
+    position: absolute;
+
+}
 </style>
 </head>
-<body onclick="insert_new_text()">
-    <h1 id="my_text">Please click on the page</h1>
+<body nclick="insert_new_text()">
+    <h1 id="my_text">Please click on the page</h1>
     <p>下面左图比右图多一个笑脸，找出并点击它</p>
     <div style="display: -webkit-flex;display: flex;">
-        <div id="face_left" class="half_div">
+        <div id="face_left" class="half_div" style="position:relative">
+        <img src="face.png" onclick="run_game()">
         </div>
-        <div id="face_right" class="half_div"></div>
+        <div id="face_right" class="half_div" style="position:relative">
+        </div>
     </div>
 </body>
 </html>
