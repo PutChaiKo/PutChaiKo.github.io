@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="zh">
+<h
+tml lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,9 +14,9 @@
         <script>
             var face_number = 5;
             function add_new_face(){
-                var random_top = Math.random()*90;
+                var random_top = Math.random()*80;
                     console.log("random_top is "+ random_top);
-                var random_left = Math.random()*90;
+                var random_left = Math.random()*78;
                     console.log("random_left  is "+ random_left );
                 var addimg = document.createElement("img");
                 addimg.src="face.png"
@@ -35,9 +36,9 @@
             }
 
             function add_target_face(){
-                var random_top = Math.random()*90;
+                var random_top = Math.random()*80;
                     console.log("target_random_top is "+ random_top);
-                var random_left = Math.random()*90;
+                var random_left = Math.random()*78;
                     console.log("target_random_left  is "+ random_left );
                 var addimg = document.createElement("img");
                 addimg.id = "target"
@@ -109,8 +110,8 @@
     height: 80vh;
 }
 img{
-    height: 10vh;
-    width: 10vh;
+    height: 10vw;
+    width: 10vw;
     position: absolute;
 
 }
