@@ -11,23 +11,27 @@
 <link rel="stylesheet" href="css/style.css">
 -->
         <script>
+            var face_number = 5;
             function add_new_face(){
                 var random_top = Math.random()*90;
                     console.log("random_top is "+ random_top);
                 var random_left = Math.random()*90;
                     console.log("random_left  is "+ random_left );
                 var addimg = document.createElement("img");
-                addimg.src = "face.png"
+                addimg.src="face.png"
                 addimg.style = "top: " + random_top + "%;" +
                     "left: " + random_left + "%;"
-                var divpart = document.getElementById("face_right");
-                divpart.appendChild(addimg);
+                addimg.onclick = function(){'click',game_over()};
+                var left_divpart = document.getElementById("face_left");
+                left_divpart.appendChild(addimg);
+                //add right face
                 var addimg = document.createElement("img");
                 addimg.src="face.png"
                 addimg.style = "top: " + random_top + "%;" +
                     "left: " + random_left + "%;"
-                var divpart = document.getElementById("face_left");
-                divpart.appendChild(addimg);
+                addimg.onclick = function(){'click',wrong_click()};
+                var right_divpart = document.getElementById("face_right");
+                right_divpart.appendChild(addimg);
             }
 
             function add_target_face(){
@@ -36,28 +40,64 @@
                 var random_left = Math.random()*90;
                     console.log("target_random_left  is "+ random_left );
                 var addimg = document.createElement("img");
-                addimg.src = "face2.png";
+                addimg.id = "target"
+                addimg.src = "face.png";
                 addimg.style = "top: " + random_top + "%;" +
                     "left: " + random_left + "%;";
-                var divpart = document.getElementById("face_left");
-                divpart.appendChild(addimg);
-                addimg.addEventListener( 'click',alert_error());
+                addimg.onclick = function(){'click',target_correct()};
+                var left_divpart = document.getElementById("face_left");
+                left_divpart.appendChild(addimg);
+                
             }
 
             function alert_error(){
                 alert("error");
             }
+            function game_over(){
+                face_level = face_number - 5;
+                alert("Game Over!\n\n" + 
+                        "You Level is "+ face_level +" Faces.\n\n" + 
+                        "Play Again!");
+                clear_face();
+                face_number = 5;
+                run_game();
+            }
+            function wrong_click(){
+                alert("Please Click the Face on the left side.")
+            }
             function add_new_face_5(){
-                var face_number = 5;
                 var i = 0;
                 while (i < face_number) {
+                    console.log("face_number is " + face_number + 
+                        " be add " + i + " times")
                     add_new_face();
                     i++;
                 }
+                face_number += 5;
+                console.log("face_number is " + face_number)
             }
             function run_game(){
-                add_new_face_5();
-                add_target_face()
+                    add_new_face_5();
+                    add_target_face();
+            }
+
+            function clear_face(){
+                var left_divpart = document.getElementById("face_left");
+                while (left_divpart.firstChild){
+                    left_divpart.removeChild(left_divpart.firstChild);
+                }
+                var right_divpart = document.getElementById("face_right");
+                while (right_divpart.firstChild){
+                    right_divpart.removeChild(right_divpart.firstChild);
+                }
+            }
+            function target_correct(){
+                clear_face();
+                run_game()
+            }
+            function show_face() {
+                var target_face = document.getElementById("target");
+                target_face.src = "face2.png";
             }
         </script>
 <style>
@@ -76,12 +116,15 @@ img{
 }
 </style>
 </head>
-<body nclick="insert_new_text()">
-    <h1 id="my_text">Please click on the page</h1>
-    <p>下面左图比右图多一个笑脸，找出并点击它</p>
+<body onload="run_game()">
+    <p>下面左图比右图多一个笑脸，找出并点击它进入下一关</p>
+    <!--
+    <button onclick="run_game()">开始游戏</button>  
+    <button onclick="clear_face()">清屏</button>
+    -->
+    <button onclick="show_face()">作弊</button>
     <div style="display: -webkit-flex;display: flex;">
         <div id="face_left" class="half_div" style="position:relative">
-        <img src="face.png" onclick="run_game()">
         </div>
         <div id="face_right" class="half_div" style="position:relative">
         </div>
