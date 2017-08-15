@@ -1,0 +1,73 @@
+/*下述为导航栏的切换按钮，小屏才会出现*/
+.my-navbar-toggle {
+    position: relative;
+    float: left;
+    padding: 9px 10px;
+    margin-top: 11px;
+    margin-left: 8px;
+    margin-bottom: 11px;
+    background-color: transparent;
+    background-image: none;
+    border-style: none;
+    //border: 1px solid transparent;
+    //border-radius: 4px;
+}
+/*为了去除导航栏的渐变效果及圆角效果*/
+.navbar-inverse {
+   border-radius: 0px;
+   //background-image: linear-gradient(to bottom,#b33e3e 0,#222 100%);
+   background-image: none;
+   background-color: rgba(0,0,0,0.9);
+}
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background-color: transparent;
+}
+.navbar-inverse .navbar-toggle:focus>.icon-bar, .navbar-inverse .navbar-toggle:hover>.icon-bar {
+    background-color: #cccccc;
+}
+/*icon-bar连续放置时，相隔的像素*/
+.navbar-toggle .icon-bar+.icon-bar {
+    margin-top: 6px;
+}
+
+/*领养居右*/
+.my-navbar-brand_right {
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    color: #9d9d9d;
+    float: right;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    }
+
+    /*导航条底部空间*/
+    .navbar {
+        position: relative;
+        min-height: 50px;
+        margin-bottom: 0px;
+        border: 1px solid transparent;
+    }
+
+    .bor_blue {
+        border: 10px;
+        border-style: solid;
+        border-color: blue;
+    }
+
+    .bor_red {
+        border: 1px;
+        border-style: solid;
+        border-color: green;
+    }
+
+.container {
+        width: 100%;
+    }
+
+.my-sm-img-bg {
+    height:268px;
+    border-width: 2px 1px;
+    border-style: solid;
+    border-color: #ffffff;
+}
