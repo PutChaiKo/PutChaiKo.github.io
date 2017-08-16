@@ -66,8 +66,17 @@
     }
 
 .my-sm-img-bg {
-    height:268px;
+    height: 268px;
     border-width: 2px 1px;
     border-style: solid;
     border-color: #ffffff;
+}
+a {
+    color: #777;
+    text-decoration: none;
+}
+
+a:hover, a:focus, a:visited, a:active {
+    color: #777;
+    text-decoration: underline;
 }
