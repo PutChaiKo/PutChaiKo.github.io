@@ -70,13 +70,60 @@
     border-width: 2px 1px;
     border-style: solid;
     border-color: #ffffff;
+    position: relative;
+    min-height: 1px;
+    padding-right: 0px;
+    padding-left: 0px;
+    background-size: cover;
+    background-position: center;
 }
-a {
+
+.my-sm-img-bg>a {
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+    height:264px;
+    text-align: center;
+
+}
+
+.my-sm-img-bg>a>p1{
+    font-size: 1.8rem;
+    font-weight: 500;
+    //position: absolute;
+    //padding-bottom: 157px;
+    //padding-top: 30px;
+    //line-height: 3rem;
+    //margin: auto;
+}
+
+.table>tbody>tr>td>a {
     color: #777;
     text-decoration: none;
 }
 
-a:hover, a:focus, a:visited, a:active {
+.table>tbody>tr>td>a:hover, .table>tbody>tr>td>a:focus, .table>tbody>tr>td>a:visited, .table>tbody>tr>td>a:active {
     color: #777;
     text-decoration: underline;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 8px;
+    line-height: 0.7;
+    vertical-align: top;
+    border: none;
+}
+
+/*hover灰色*/
+.hover_gray {
+    background: radial-gradient(circle,rgba(255, 255, 255, 0),rgba(0, 0, 0, 0.1));
+    color: balck;
+}
+
+.hover_gray:focus, .hover_gray:hover, .hover_gray:visited, .hover_gray:active {
+    background: radial-gradient(circle,rgba(255, 255, 255, 0),rgba(0, 0, 0, 0.2));
+}
+
+/*  */
+.carousel-caption {
+    font-size: 4vh;
 }
