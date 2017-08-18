@@ -172,7 +172,7 @@
             width: 90%;
             border-color: #ddd;
     "/>
-<div class="container">
+<div class="container" style="padding-left: 0px;padding-right: 0px;">
     <div class="row">
         <div class="col-sm-10 col-sm-push-1">
             <table class="table table-condensed hidden-xs ">
@@ -273,6 +273,61 @@
             </table>
         </div>
     </div>
+    <div  class="row">
+        <div class="col-xs-12 visible-xs">
+            <div class="panel-group" id="accordion" style="margin-bottom:0px;">
+                <div class="panel panel-info"
+                    style="border-radius: 0px;
+                    border: 1px solid rgb(0, 0, 0);
+                    ">
+                    <div class="panel-heading"
+                        style="padding-left: 0px;
+                            padding-right: 0px;
+                            background:rgba(255, 255, 255, 0);
+                            ">
+                            <a data-toggle="collapse" data-parent="#accordion"
+                            href="#collapseexample">
+                        <h4 class="panel-title">
+                            猫科动物
+                        </h4>
+                        </a>
+                    </div>
+                    <div id="collapseexample" class="panel-collapse collapse">
+                        <div class="panel-body" style="border: none;">
+                            <table class="table table-condensed" style="margin-bottom: 0px;">
+                                <tr>
+                                  <td><a class="" href="#">金猫族</a></td>
+                                </tr>
+                                <tr>
+                                  <td><a class="" href="#">狞猫族</a></td>
+                                </tr>
+                                <tr>
+                                  <td><a class="" href="#">虎猫族</a></td>
+                                </tr>
+                                <tr>
+                                  <td><a class="" href="#">猞猁族</a></td>
+                                </tr>
+
+                                <tr>
+                                  <td><a class="" href="#">美洲狮族</a></td>
+                                </tr>
+
+                                <tr>
+                                  <td><a class="" href="#">豹猫族</a></td>
+                                </tr>
+
+                                <tr>
+                                  <td><a class="" href="#">猫族</a></td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
     <hr style="width:90%;"/>
     <foot calss="container">
@@ -296,5 +351,17 @@
       <script src="js/jquery.min.js"></script>
       <!-- Include all compiled plugins (below), or include individual files as needed -->
       <script src="js/bootstrap.min.js"></script>
+      <!-- script本页代码 -->
+      <script type="text/javascript">
+      $(function () {
+            $('#collapseexample').on('show.bs.collapse', function () {
+                console.log("折叠打开");
+        })
+            $('#collapseexample').on('hide.bs.collapse', function () {
+                console.log("折叠关闭");
+            })
+        });
+
+</script>
    </body>
 </html>
