@@ -127,3 +127,84 @@
 .carousel-caption {
     font-size: 4vh;
 }
+
+/* 底层小屏折叠栏 */
+.my-panel-hr {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    border-top: 1px solid #ddd;
+}
+.my-panel {
+    margin-bottom:0px;
+}
+
+.my-panel>.panel-info {
+    border-radius: 0px;
+    border-top-color: #ddd;
+    border-top-style: solid;
+    border-top-width: 0px;
+    border-right-color: rgb(0, 0, 0);
+    border-right-style: solid;
+    border-right-width: 0px;
+    border-bottom-color: #ddd;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: rgb(0, 0, 0);
+    border-left-style: solid;
+    border-left-width: 0px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+}
+
+.my-panel>.panel-info>.panel-heading {
+    height: 34px;
+    padding: 0px;
+    background:rgba(255, 255, 255, 0);
+}
+
+.my-panel>.panel-info>.panel-heading>a {
+    height: 34px;
+    width: 100%;
+    display: block;
+    padding: 10px 0px;
+
+}
+
+/*.my-panel>.panel-info>.panel-heading>a:hover,
+.my-panel>.panel-info>.panel-heading>a:focus,
+.my-panel>.panel-info>.panel-heading>a:active,
+.my-panel>.panel-info>.panel-heading>a:visited*/
+.my-panel>.panel-info>.panel-heading>a:active
+{
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+.my-panel>.panel-info>.panel-heading>a>h4 {
+    color: #333;
+    font-weight: bold;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    text-decoration: none;
+    font-size: 14px;
+    padding-right: 0px;
+}
+
+.my-panel>.panel-info>.panel-heading>a>h5 {
+    color: #333;
+    font-weight: normal;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    text-decoration: none;
+    font-size: 14px;
+    padding-left: 0px;
+}
+
+.my-panel>.panel-info>.panel-collapse>.panel-body {
+    border: none;
+}
+
+.my-panel>.panel-info>.panel-collapse>.panel-body>table {
+    margin-bottom: 0px;
+}
