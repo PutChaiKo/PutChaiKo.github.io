@@ -286,9 +286,16 @@
                             <h4 class="panel-title col-xs-11">
                                 猫科动物
                             </h4>
-                            <h5 class="panel-title col-xs-1" id="felidae-plus">
+                            <h5 class="panel-title col-xs-1" id="felidae-plus" style="
+                            width: 14px;
+                            height: 14px;
+                            background-color: red;
+                            text-align: center;
+                            //text-align: -webkit-center;
+                            padding-right: 0px;
+">
                                 +
-                            </h4 >
+                            </h5 >
                         </a>
                     </div>
                     <div id="felidae" class="panel-collapse collapse">
@@ -521,19 +528,48 @@
 
       <!-- 包括所有已编译的插件 -->
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src="js/jquery.min.js"></script>
+      <script src="js/jquery-development.js"></script>
       <!-- Include all compiled plugins (below), or include individual files as needed -->
       <script src="js/bootstrap.min.js"></script>
       <!-- script本页代码 -->
       <script type="text/javascript">
+
+
       $(function () {
             $('#felidae').on('show.bs.collapse', function () {
                 console.log("猫科动物打开");
+
+                $(document).ready(function(){
+                    var elementToRotate = $('#felidae-plus');
+                    var degreeOfRotation = 45;
+
+                    var deg = degreeOfRotation;
+                    var deg2radians = Math.PI * 2 / 360;
+                    var rad = deg * deg2radians ;
+                    var costheta = Math.cos(rad);
+                    var sintheta = Math.sin(rad);
+
+                    var m11 = costheta;
+                    var m12 = -sintheta;
+                    var m21 = sintheta;
+                    var m22 = costheta;
+                    var matrixValues = 'M11=' + m11 + ', M12='+ m12 +', M21='+ m21 +', M22='+ m22;
+
+                    elementToRotate.css('-webkit-transform','rotate('+deg+'deg)')
+                        .css('-moz-transform','rotate('+deg+'deg)')
+                        .css('-ms-transform','rotate('+deg+'deg)')
+                        .css('transform','rotate('+deg+'deg)')
+                        .css('filter', 'progid:DXImageTransform.Microsoft.Matrix(sizingMethod=\'auto expand\','+matrixValues+')')
+                        .css('-ms-filter', 'progid:DXImageTransform.Microsoft.Matrix(SizingMethod=\'auto expand\','+matrixValues+')');
+                });
+
+
         })
             $('#felidae').on('hide.bs.collapse', function () {
                 console.log("猫科动物关闭");
             })
         });
+
         $(function () {
               $('#with_human').on('show.bs.collapse', function () {
                   console.log("猫与人类打开");
