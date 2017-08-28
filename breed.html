@@ -22,9 +22,9 @@
       <![endif]-->
    </head>
    <body>
-        <nav class="navbar navbar-inverse " role="navigation" style="//border-color:red;">
-            <div class="container-fluid" style="border-color:blue;">
-            <div class="navbar-header" style="border-color:red;">
+        <nav class="navbar navbar-inverse " role="navigation">
+            <div class="container-fluid" >
+            <div class="navbar-header">
 
                 <button type="button" class="navbar-toggle my-navbar-toggle" data-toggle="collapse"
                         data-target="#example-navbar-collapse" style="//border-color:red;">
@@ -72,8 +72,20 @@
 
             </div>
         </nav>
-<!--轮播板-->
-
+<!--滑动悬浮固定-->
+<!-- 固定元素悬浮后，原来所在的位置会被空缺（height变成0），
+导致页面闪跳且计算不准，所以必须设置一个确定高度的div框住 -->
+<div style="height: 50px; background-color: rgb(0, 122, 255);">
+<nav class="navbar navbar-default fixed" role="navigation" style="width: 100%;">
+    <div class="container-fluid" >
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">猫logo</a>
+        </div>
+        <a class="my-navbar-brand_right navbar-brand" href="#">领养</a>
+    </div>
+</nav>
+</div>
+<!--滑动悬浮固定end-->
 <div class="">
              <div class="item" style="
                     height: 90vh;
@@ -576,6 +588,47 @@
                         console.log("关于本站关闭");
                     })
                 });
+/*滑动悬浮固定功能*/
+$(function() {
+    var fix = $('.fixed');                      //滚动悬浮块
+    var end = $('.bottom');                     //滚动到这个元素后结束固定
+    var fixTop = fix.offset().top,              //滚动悬浮块与顶部的距离
+        fixHeight = fix.height();               //滚动悬浮块高度
+
+
+    var endTop, miss;                           //结束元素与顶部的距离
+
+    $(window).scroll(function() {
+        //页面与顶部高度
+        var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+        //被上卷掉的页面高度
+        //其中在W3C标准中document.body.scrollTop恒为0
+        //所以用document.documentElement.scrollTop)代替
+        console.log("fixTop " + fixTop);
+        console.log("fixHeight " + fixHeight);
+        console.log("docTop " + docTop);
+        console.log("miss " + miss);
+        console.log("document.body.scrollTop " + document.body.scrollTop);
+        console.log("document.body.scrollTop " + document.documentElement.scrollTop);
+        //如果有结束块
+        if (end.length > 0) {
+            endTop = end.offset().top;
+            miss = endTop - docTop - fixHeight;
+        }
+
+        if (fixTop < docTop) {
+            fix.css({'position': 'fixed'});
+            if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+                fix.css({top: miss});           //滚动悬浮块滑到结束块上时，top值为负，即慢慢隐藏出浏览器
+            } else{
+                fix.css({top: 0});              //滚动悬浮块未到结束块上时，top为0
+            }
+        }
+        else {
+            fix.css({'position': 'static'});
+        }
+    })
+});
 </script>
    </body>
 </html>
