@@ -22,7 +22,7 @@
       <![endif]-->
    </head>
    <body>
-        <nav class="navbar navbar-inverse " role="navigation">
+        <nav class="navbar navbar-inverse " role="navigation" style="z-index:3000;">
             <div class="container-fluid" >
             <div class="navbar-header">
 
@@ -100,7 +100,14 @@
                     width: 100%;
                     background: url(img/slide1.jpg);
                     background-size: cover;
-                    background-position: center;">
+                    background-position: center;
+
+//-webkit-filter: blur(15px);
+//-moz-filter: blur(15px);
+//-o-filter: blur(15px);
+//-ms-filter: blur(15px);
+//filter: blur(15px);
+                    ">
              <!--<img style="" src="img/slide1.jpg" alt="猫" />-->
              </div>
              </div>
@@ -108,7 +115,7 @@
 <!---->
 <br />
         <div class="col-xs-12 with_cat"
-            style="" >
+            style="height: 75vh;" >
                 <a class="col-xs-12" href="#" alt=""
                 style="
                 text-align: center;
@@ -116,7 +123,7 @@
                 font-size: 2.0rem;
                 " >
                 <br />
-                <p1 style="font-size: 3.0rem;
+                <p1 style="font-size: 4rem;
                                 color: #000000;">
                 猫是与人类关系密切的一种动物
                 </p1>
@@ -128,7 +135,7 @@
                 <p3>
                     一般所说的“猫”是指家猫，
                     <br />
-                    是野猫（斑猫）经过人工驯养之后的亚种或变种，
+                    是野猫经过人工驯养之后的亚种或变种，
                     <br />
                     具有很多品种，是最受人类欢迎的宠物之一。
                 </p3>
@@ -136,7 +143,7 @@
             </a>
         </div>
     </div>
-    <div class="bottom" style="width: 100%; height:10vh; background-color: red; ">
+    <div class="bottom" style="width: 100%; height:100vh; background-color: red; ">
     </div>
     <hr class="hidden-xs" style="
             width: 90%;
@@ -629,14 +636,21 @@ $(function(){
 
         var end2top = end2.offset().top;
         //被卷掉的页面高度
-        if (doctop > 52){
-            console.log("被卷掉的页面高度 大于 52")
-            point = end2top - doctop - bigtextheight
-            console.log("位置 point = " + point)
+        point = ((doctop - 52) / bigtextheight)
+        console.log("透明度 point = " + point)
+        if (point <= 1){
+            console.log("point <= 1")
+            bigtext.css({opacity: point});
+            $('.fixed').css('filter','blur('+ point * 10 +'px)');
+        }
+        if (point > 1){
+            bigtext.css({opacity: 1});
+            $('.fixed').css('filter','blur('+ 10 +'px)');
         }
         else {
-            console.log("被卷掉的页面高度 小于 52")
-
+            console.log("出现else！！")
+            //bigtext.css({opacity: 0});
+            //$('.fixed').css('filter','blur('+ 0 +'px)');
         }
         console.log("bigtexttop=" + bigtexttop)
         console.log("bigtextheight=" + bigtextheight)
