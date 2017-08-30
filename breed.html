@@ -75,83 +75,70 @@
 <!--滑动悬浮固定-->
 <!-- 固定元素悬浮后，原来所在的位置会被空缺（height变成0），
 导致页面闪跳且计算不准，所以必须设置一个确定高度的div框住 -->
-<div style="height: 50px; background-color: rgb(0, 122, 255);">
-    <div class="fixed" style="height: 50px; width: 100%; background-color: #ffffff; ">
-        <p1>Cat</p>
-    </div>
-</div>
-
-
+<div class="container" style=“z-index:2000;”>
+<div class="row ">
 <!--滑动悬浮固定end-->
-<div class="">
-             <div class="item" style="
+<div class="" style="height: 100vh; width: 100%;">
+
+    <!--
+             <div class="item fixed" style="
                     height: 90vh;
                     background-color: #ff1919;
                     //background: url(img/slide1.jpg);
                     //background-size: cover;
-                    //background-position: center;">
+                    //background-position: center;
+                    -moz-filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+                    ">
+-->
              <!--<img style="" src="img/slide1.jpg" alt="猫" />-->
-                 <video
-                 src="video/cat_day.mp4"
-                 autoplay="autoplay"
-                 loop="loop"
-                 height="100%">
-                 您的浏览器不支持 video 标签。
-                 </video>
-             <div class="carousel-caption">幼猫</div>
+             <div class="item fixed" style="
+                    height: 100vh;
+                    width: 100%;
+                    background: url(img/slide1.jpg);
+                    background-size: cover;
+                    background-position: center;">
+             <!--<img style="" src="img/slide1.jpg" alt="猫" />-->
+             </div>
              </div>
 </div>
 <!---->
-<div class="container">
-    <div class="row ">
-        <div class="col-xs-12 col-sm-6 col-md-3 my-sm-img-bg"
-            style="background-image:url(img/cat1.jpg);" >
-                <a class="col-xs-12 hover_gray" style="" href="#" alt="">
-                <p1>
-                <br/>
-                猫为什么会发出呼噜声？
+<br />
+        <div class="col-xs-12 with_cat"
+            style="" >
+                <a class="col-xs-12" href="#" alt=""
+                style="
+                text-align: center;
+                color: #000000;
+                font-size: 2.0rem;
+                " >
+                <br />
+                <p1 style="font-size: 3.0rem;
+                                color: #000000;">
+                猫是与人类关系密切的一种动物
                 </p1>
+                <br />
+                <p2>
+                    人类养猫的历史可追溯到3600年前。
+                </p2>
+                <br />
+                <p3>
+                    一般所说的“猫”是指家猫，
+                    <br />
+                    是野猫（斑猫）经过人工驯养之后的亚种或变种，
+                    <br />
+                    具有很多品种，是最受人类欢迎的宠物之一。
+                </p3>
+                <br /><br />
             </a>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 my-sm-img-bg"
-            style="background-image:url(img/cat2.jpg);" >
-                <a class="col-xs-12 hover_gray" style="color: #000000" href="#" alt="">
-                <p1>
-                <br/>
-                为家里添一只猫
-                <br/>
-                点此了解<sup>*</sup>
-                </p1>
-            </a>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 my-sm-img-bg"
-            style="background-image:url(img/cat3.jpg);" >
-                <a class="col-xs-12 hover_gray" style="" href="#" alt="">
-                <p1>
-                <br/>
-                走近科学
-                <br/>
-                耳尖被剪的流浪猫
-                </p1>
-            </a>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 my-sm-img-bg"
-        <div class="col-xs-12 col-sm-6 col-md-3 my-sm-img-bg"
-            style="background-image:url(img/cat4.jpg);" >
-                <a class="col-xs-12 hover_gray" style="" href="#" alt="">
-                <p1>
-                <br/>
-                云养猫
-                <br/>
-                从入门到精通
-                </p1>
-            </a>
-        </div>
-
-
-
     </div>
-    <hr class=" hidden-xs" style="
+    <div class="bottom" style="width: 100%; height:10vh; background-color: red; ">
+    </div>
+    <hr class="hidden-xs" style="
             width: 90%;
             border-color: #ddd;
     "/>
@@ -601,12 +588,13 @@ $(function() {
         //被上卷掉的页面高度
         //其中在W3C标准中document.body.scrollTop恒为0
         //所以用document.documentElement.scrollTop)代替
-        console.log("fixTop " + fixTop);
-        console.log("fixHeight " + fixHeight);
-        console.log("docTop " + docTop);
-        console.log("miss " + miss);
-        console.log("document.body.scrollTop " + document.body.scrollTop);
-        console.log("document.body.scrollTop " + document.documentElement.scrollTop);
+        console.log("滚动悬浮块与顶部的距离fixTop=" + fixTop);
+        //console.log("fixHeight " + fixHeight);
+        console.log("被上卷掉的页面高度docTop " + docTop);
+        //console.log("miss=" + miss);
+        //console.log("document.body.scrollTop " + document.body.scrollTop);
+        //console.log("document.body.scrollTop " + document.documentElement.scrollTop);
+        console.log("结束块与顶端高度endTop=" + endTop);
         //如果有结束块
         if (end.length > 0) {
             endTop = end.offset().top;
@@ -623,9 +611,37 @@ $(function() {
         }
         else {
             fix.css({'position': 'static'});
+
         }
     })
 });
+
+//滚动渐变
+$(function(){
+    var bigtext = $('.with_cat');   //定义class
+    var bigtexttop = bigtext.offset().top,
+    bigtextheight = bigtext.height();
+    var end2 = $('.bottom');
+
+
+    $(window).scroll(function(){
+        var doctop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+
+        var end2top = end2.offset().top;
+        //被卷掉的页面高度
+        if (doctop > 52){
+            console.log("被卷掉的页面高度 大于 52")
+            point = end2top - doctop - bigtextheight
+            console.log("位置 point = " + point)
+        }
+        else {
+            console.log("被卷掉的页面高度 小于 52")
+
+        }
+        console.log("bigtexttop=" + bigtexttop)
+        console.log("bigtextheight=" + bigtextheight)
+    })
+})
 </script>
    </body>
 </html>
