@@ -22,7 +22,7 @@
       <![endif]-->
    </head>
    <body>
-        <nav class="navbar navbar-inverse " role="navigation" style="z-index:3000;">
+        <nav class="navbar navbar-inverse col-xs-12" role="navigation" style="z-index: 3000;position: fixed;">
             <div class="container-fluid" >
             <div class="navbar-header">
 
@@ -58,12 +58,6 @@
                             <li><a href="#">埃及猫</a></li>
                             <li><a href="#">英国短毛猫</a></li>
                             <li><a href="#">折耳猫（已除名）</a></li>
-                            <li><a href="#"></a></li>
-                            <li><a href="#"></a></li>
-                            <li><a href="#"></a></li>
-                            <li><a href="#"></a></li>
-
-
                         </ul>
                     </li>
                 </ul>
@@ -116,43 +110,57 @@
 <br />
         <div class="col-xs-12 with_cat"
             style="height: 100vh;" >
+            <div class="col-xs-12" style="height:30vh; color: #000000">
+                留空
+            </div>
                 <a class="col-xs-12" href="#" alt=""
                 style="
                 text-align: center;
                 color: #000000;
                 font-size: 2.0rem;
                 " >
-                <br />
-                <p1 style="font-size: 4rem;
+
+                <h1 style="font-size: 4rem;
                                 color: #000000;">
                 猫是与人类关系密切的一种动物
-                </p1>
-                <br />
-                <p2>
+            </h1>
+
+                <h3>
                     人类养猫的历史可追溯到3600年前。
-                </p2>
-                <br />
-                <p3>
+                </h3>
+
+                <h3>
                     一般所说的“猫”是指家猫，
                     <br />
                     是野猫经过人工驯养之后的亚种或变种，
                     <br />
                     具有很多品种，是最受人类欢迎的宠物之一。
-                </p3>
+                </h3>
                 <br /><br />
             </a>
         </div>
     </div>
-    <div class="bottom" style="width: 100%; height:100vh; background-color: red; ">
+    <div class="bottom" style="width: 100%; height:1vh; background-color: red; ">
     </div>
 
-    <div class="col-xs-12 black_cat"
+    <div class="col-xs-12 black_cat black_div"
         style="
-        height: 150vh;
+        height: 200vh;
         background: url(img/black_cat_2.jpg);
         background-size: cover;
         background-position: center;
     ">
+    <div class="col-xs-12" style="color: #ffffff">留空</div>
+        <div class="col-xs-12 col-sm-8 col-sm-push-2 col-md-4 ">
+            <h3 style="color: #909090">
+                大约成书于北魏末年即533年-554年贾思勰的《齐民要术·造神曲并酒》：“其屋，预前数日著猫，塞鼠窟，泥壁，令净扫地”，说明这个时候猫在中国北方已经广泛豢养。
+            </h3>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-sm-push-2 col-md-4">
+            <h3 style="color: #909090">
+                唐朝，宫廷中出现“狸奴”，狸奴即为猫，专门担任各大殿的防鼠工作。李商隐诗：“鸳鸯瓦上狸奴睡”。猫出现在唐代《仕女图》中，成为贵妇的宠物。
+            </h3>
+        </div>
     </div>
     <br />
     <hr class="hidden-xs" style="
@@ -668,6 +676,20 @@ $(function(){
         console.log("bigtextheight=" + bigtextheight)
     })
 })
+
+//导航栏class变换
+/*
+$(function(){
+    $(".navbar-default").hover(function() {
+        $(this).addClass("navbar-inverse", 10000,);
+        $(this).removeClass("navbar-default", 10000,);
+    },
+function(){
+    $(this).addClass("navbar-default", 10000,);
+    $(this).removeClass("navbar-inverse", 10000,);
+    })
+})
+*/
 </script>
    </body>
 </html>
