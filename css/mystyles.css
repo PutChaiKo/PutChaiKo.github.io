@@ -225,16 +225,20 @@
 }
 
 .my-panel>.panel-info>.panel-heading>a>h5 {
-    color: #333;
-    font-weight: normal;
-    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-    text-decoration: none;
-    font-size: 14px;
-    padding-left: 0px;
+        color: #333;
+        padding-left: 0px;
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+        text-align: center;
+        text-align: -webkit-center;
+        padding-right: 0px;
+        margin-top: -4px;
 }
 
 .my-panel>.panel-info>.panel-collapse>.panel-body {
     border: none;
+    padding-top: 0px;
 }
 
 .my-panel>.panel-info>.panel-collapse>.panel-body>table {
@@ -300,4 +304,8 @@
     background-color:transparent;
     background-image:none;
     filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.with_cat a:hover {
+    text-decoration:none;
 }
