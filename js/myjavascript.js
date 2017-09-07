@@ -1,96 +1,64 @@
 
-      $(function () {
-            $('#felidae').on('show.bs.collapse', function () {
-                console.log("猫科动物打开");
+    $(function () {
+        //自定义函数
+        //旋转45度
+        function rotate_plus(){
+            var deg = degreeOfRotation;
+            var deg2radians = Math.PI * 2 / 360;
+            var rad = deg * deg2radians ;
+            var costheta = Math.cos(rad);
+            var sintheta = Math.sin(rad);
 
-                $(document).ready(function(){
-                    var elementToRotate = $('#felidae-plus');
-                    var degreeOfRotation = 45;
+            var m11 = costheta;
+            var m12 = -sintheta;
+            var m21 = sintheta;
+            var m22 = costheta;
+            var matrixValues = 'M11=' + m11 + ', M12='+ m12 +', M21='+ m21 +', M22='+ m22;
 
-                    var deg = degreeOfRotation;
-                    var deg2radians = Math.PI * 2 / 360;
-                    var rad = deg * deg2radians ;
-                    var costheta = Math.cos(rad);
-                    var sintheta = Math.sin(rad);
+            elementToRotate.css('-webkit-transform','rotate('+deg+'deg)')
+                .css('-moz-transform','rotate('+deg+'deg)')
+                .css('-ms-transform','rotate('+deg+'deg)')
+                .css('transform','rotate('+deg+'deg)')
+                .css('filter', 'progid:DXImageTransform.Microsoft.Matrix(sizingMethod=\'auto expand\','+matrixValues+')')
+                .css('-ms-filter', 'progid:DXImageTransform.Microsoft.Matrix(SizingMethod=\'auto expand\','+matrixValues+')');
+        }
 
-                    var m11 = costheta;
-                    var m12 = -sintheta;
-                    var m21 = sintheta;
-                    var m22 = costheta;
-                    var matrixValues = 'M11=' + m11 + ', M12='+ m12 +', M21='+ m21 +', M22='+ m22;
-
-                    elementToRotate.css('-webkit-transform','rotate('+deg+'deg)')
-                        .css('-moz-transform','rotate('+deg+'deg)')
-                        .css('-ms-transform','rotate('+deg+'deg)')
-                        .css('transform','rotate('+deg+'deg)')
-                        .css('filter', 'progid:DXImageTransform.Microsoft.Matrix(sizingMethod=\'auto expand\','+matrixValues+')')
-                        .css('-ms-filter', 'progid:DXImageTransform.Microsoft.Matrix(SizingMethod=\'auto expand\','+matrixValues+')');
-                });
-
-
+        $('#felidae').on('show.bs.collapse', function () {
+            rotate_plus(elementToRotate = $('#felidae-plus'),degreeOfRotation = 45);
         })
-            $('#felidae').on('hide.bs.collapse', function () {
-                console.log("猫科动物关闭");
-                $(document).ready(function(){
-                    var elementToRotate = $('#felidae-plus');
-                    var degreeOfRotation = 0;
+        $('#felidae').on('hide.bs.collapse', function () {
+            rotate_plus(elementToRotate = $('#felidae-plus'),degreeOfRotation = 0);
+        })
 
-                    var deg = degreeOfRotation;
-                    var deg2radians = Math.PI * 2 / 360;
-                    var rad = deg * deg2radians ;
-                    var costheta = Math.cos(rad);
-                    var sintheta = Math.sin(rad);
+        $('#with_human').on('show.bs.collapse', function () {
+            rotate_plus(elementToRotate = $('#with_human-plus'),degreeOfRotation = 45);
+        })
+        $('#with_human').on('hide.bs.collapse', function () {
+            rotate_plus(elementToRotate = $('#with_human-plus'),degreeOfRotation = 0);
+        })
 
-                    var m11 = costheta;
-                    var m12 = -sintheta;
-                    var m21 = sintheta;
-                    var m22 = costheta;
-                    var matrixValues = 'M11=' + m11 + ', M12='+ m12 +', M21='+ m21 +', M22='+ m22;
+        $('#breed').on('show.bs.collapse', function () {
+            rotate_plus(elementToRotate = $('#breed-plus'),degreeOfRotation = 45);
+        })
+        $('#breed').on('hide.bs.collapse', function () {
+            rotate_plus(elementToRotate = $('#breed-plus'),degreeOfRotation = 0);
+        })
 
-                    elementToRotate.css('-webkit-transform','rotate('+deg+'deg)')
-                        .css('-moz-transform','rotate('+deg+'deg)')
-                        .css('-ms-transform','rotate('+deg+'deg)')
-                        .css('transform','rotate('+deg+'deg)')
-                        .css('filter', 'progid:DXImageTransform.Microsoft.Matrix(sizingMethod=\'auto expand\','+matrixValues+')')
-                        .css('-ms-filter', 'progid:DXImageTransform.Microsoft.Matrix(SizingMethod=\'auto expand\','+matrixValues+')');
-                });
+        $('#pet_thing').on('show.bs.collapse', function () {
+            rotate_plus(elementToRotate = $('#pet_thing-plus'),degreeOfRotation = 45);
+        })
+        $('#pet_thing').on('hide.bs.collapse', function () {
+            rotate_plus(elementToRotate = $('#pet_thing-plus'),degreeOfRotation = 0);
+        })
 
+        $('#about_us').on('show.bs.collapse', function () {
+            rotate_plus(elementToRotate = $('#about_us-plus'),degreeOfRotation = 45);
+        })
+        $('#about_us').on('hide.bs.collapse', function () {
+            rotate_plus(elementToRotate = $('#about_us-plus'),degreeOfRotation = 0);
+        })
+    });
 
-            })
-        });
-
-        $(function () {
-              $('#with_human').on('show.bs.collapse', function () {
-                  console.log("猫与人类打开");
-          })
-              $('#with_human').on('hide.bs.collapse', function () {
-                  console.log("猫与人类关闭");
-              })
-          });
-          $(function () {
-                $('#breed').on('show.bs.collapse', function () {
-                    console.log("常见品种打开");
-            })
-                $('#breed').on('hide.bs.collapse', function () {
-                    console.log("常见品种关闭");
-                })
-            });
-            $(function () {
-                  $('#pet_thing').on('show.bs.collapse', function () {
-                      console.log("宠物事项打开");
-              })
-                  $('#pet_thing').on('hide.bs.collapse', function () {
-                      console.log("宠物事项关闭");
-                  })
-              });
-              $(function () {
-                    $('#about_us').on('show.bs.collapse', function () {
-                        console.log("关于本站打开");
-                })
-                    $('#about_us').on('hide.bs.collapse', function () {
-                        console.log("关于本站关闭");
-                    })
-                });
 /*滑动悬浮固定功能*/
 $(function() {
     var fix = $('.fixed');                      //滚动悬浮块
@@ -172,7 +140,7 @@ $(function(){
     })
 })
 
-//页面高度与导航栏Class相关
+//页面高度与导航栏Class黑白变化
 $(function(){
     var blacknav = $('.black_div');
     var blacknav_height = blacknav.offset().top;
@@ -181,12 +149,18 @@ $(function(){
         console.log("黑块高度blacknav_height= " + blacknav_height);
         console.log("黑块_被上卷掉的页面高度docTop " + docTop);
         if (docTop > blacknav_height){
+            //默认白色变成黑色
             $(".navbar-default").addClass("navbar-inverse");
             $(".navbar-default").removeClass("navbar-default");
+            // $("#nav_cat_logo").attr("src","img/cat_logo_white.png");
+            $("#nav_cat_logo").css('filter','invert('+ 25 +'%)');
         }
         else {
+            //黑色变成默认白色
             $(".navbar-inverse").addClass("navbar-default");
             $(".navbar-inverse").removeClass("navbar-inverse");
+            // $("#nav_cat_logo").attr("src","img/cat_logo_black.png");
+            $("#nav_cat_logo").css('filter','invert('+ 100 +'%)');
         }
         //定义
     })
